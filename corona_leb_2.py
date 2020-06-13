@@ -1,7 +1,6 @@
 from lxml.html import fromstring
 from requests import get
 from re import sub
-#import kivy
 
 
 class coronaLeb:
