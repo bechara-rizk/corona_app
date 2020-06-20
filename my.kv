@@ -1,0 +1,185 @@
+<MyGrid>:
+    GridLayout:
+        cols: 1
+        size: root.width, root.height
+
+        GridLayout:
+            cols: 1
+
+            canvas:
+                Color: 
+                    rgb: [0.1,0.1,0.1]
+                Rectangle: 
+                    pos: self.pos
+                    size: self.size
+
+            Label:
+                text: "Last Update: "
+                color: 1,1,1,1
+                font_size: 30
+
+
+        GridLayout:
+            cols: 1
+
+            canvas:
+                Color: 
+                    rgb: [0,0,0]
+                Rectangle: 
+                    pos: self.pos
+                    size: self.size
+
+            Label:
+                text: "Daily Cases"
+                color: 1,1,1,1
+                font_size: 40
+
+            Label:
+                text: "XX"
+                color: 1,1,1,1
+                font_size: 80
+
+            Label:
+                text: "Tests: "
+                color: 1,1,1,1
+                font_size: 40
+
+        GridLayout:
+            cols: 2
+
+            canvas:
+                Color: 
+                    rgb: [0.1,0.1,0.1]
+                Rectangle: 
+                    pos: self.pos
+                    size: self.size
+
+            Label:
+                text: "Locals"
+                color: 1,1,1,1
+                font_size: 40
+
+            Label:
+                text: "Arrivals"
+                color: 1,1,1,1
+                font_size: 40
+
+            Label:
+                text: "XX"
+                color: 1,1,1,1
+                font_size: 80
+
+            Label:
+                text: "XX"
+                color: 1,1,1,1
+                font_size: 80
+
+        GridLayout:
+            cols: 2
+
+            canvas:
+                Color: 
+                    rgb: [0,0,0]
+                Rectangle: 
+                    pos: self.pos
+                    size: self.size
+
+            Label:
+                text: "Total cases"
+                color: 1,1,1,1
+                font_size: 40
+
+            Label:
+                text: "Locals: "
+                color: 1,1,1,1
+                font_size: 40
+
+            Label:
+                text: "XX"
+                color: 1,1,1,1
+                font_size:80
+
+            Label:
+                text: "Arrivals: "
+                color: 1,1,1,1
+                font_size: 40
+
+        GridLayout:
+            cols: 2
+
+            canvas:
+                Color: 
+                    rgb: [0.1,0.1,0.1]
+                Rectangle: 
+                    pos: self.pos
+                    size: self.size
+
+            Label:
+                text: "Active Cases"
+                color: 1,1,1,1
+                font_size: 40
+
+            Label:
+                text: "Total Deaths"
+                color: 1,1,1,1
+                font_size: 40
+
+            Label:
+                text: "XX"
+                color: 1,1,1,1
+                font_size: 80
+
+            Label:
+                text: "XX"
+                color: 1,1,1,1
+                font_size: 80
+
+        GridLayout:
+            cols: 1
+
+            canvas:
+                Color: 
+                    rgb: [0,0,0]
+                Rectangle: 
+                    pos: self.pos
+                    size: self.size
+
+            Label:
+                text: "Recovered Cases"
+                color: 1,1,1,1
+                font_size: 40
+
+            Label:
+                text: "XX"
+                color: 1,1,1,1
+                font_size: 80
+
+        GridLayout:
+            cols: 1
+
+            canvas:
+                Color: 
+                    rgb: [0.1,0.1,0.1]
+                Rectangle: 
+                    pos: self.pos
+                    size: self.size
+
+            Label:
+                text: "Lockdown Cases"
+                color: 1,1,1,1
+                font_size: 40
+
+            Label:
+                text: "XX"
+                color: 1,1,1,1
+                font_size: 80
+
+        GridLayout:
+            cols: 1
+
+            Button:
+                text: "Refresh"
+                color: 1,1,1,1
+                font_size: 80
+                background_color: 0.2,0.2,0.2,1
+                background_down: "1,1,1,1"
