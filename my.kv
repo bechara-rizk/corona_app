@@ -1,4 +1,6 @@
 <MyGrid>:
+
+
     GridLayout:
         cols: 1
         size: root.width, root.height
@@ -14,6 +16,7 @@
                     size: self.size
 
             Label:
+                id: update_date
                 text: "Last Update: "
                 color: 1,1,1,1
                 font_size: 30
@@ -38,11 +41,13 @@
                 text: "XX"
                 color: 1,1,1,1
                 font_size: 80
+                id: daily_cases
 
             Label:
                 text: "Tests: "
                 color: 1,1,1,1
                 font_size: 40
+                id: tests
 
         GridLayout:
             cols: 2
@@ -178,8 +183,10 @@
             cols: 1
 
             Button:
+                id: button_change
                 text: "Refresh"
                 color: 1,1,1,1
                 font_size: 80
                 background_color: 0.2,0.2,0.2,1
                 background_down: "1,1,1,1"
+                on_press: root.change_text()
