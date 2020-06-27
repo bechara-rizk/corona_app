@@ -13,12 +13,12 @@ from corona_leb import coronaLeb
 
 class MyGrid(Widget):
 
-    def __init__(self, **kwargs):
-        super(MyGrid, self).__init__(**kwargs)
-        self.change_text()
+    def __init__(self, **kwargs):   #initial method
+        super(MyGrid, self).__init__(**kwargs)   #defining a parent class
+        self.change_text()   #calling the method to change the text
 
-    def change_text(self):
-        self.ids.update_date.text = "Last Update: " + str(coronaLeb().corona_dict["update date"])
+    def change_text(self):   #defining a method that will update the text in the app
+        self.ids.update_date.text = "Last Update: " + str(coronaLeb().corona_dict["update date"])   #for each specific id defined in the kv file the text will be updated depending on the data storred in the disctionnary
         self.ids.daily_cases.text = str(coronaLeb().corona_dict["daily cases"])
         self.ids.tests.text = "Tests: " + str(coronaLeb().corona_dict["daily tests"])
         self.ids.locals_cases.text = str(coronaLeb().corona_dict["daily cases locals"])
@@ -34,14 +34,14 @@ class MyGrid(Widget):
 
 class MyApp(App):
 
-    title = "Corona Lebanon"
+    title = "Corona Lebanon"   #setting the window title
 
-    Config.set('graphics', 'width', '400')
+    Config.set('graphics', 'width', '400')   #setting the window dimensions
     Config.set('graphics', 'height', '600')
     
     def build(self):
-        return MyGrid()
+        return MyGrid()   #calling the class that will build the app
 
 
 if __name__=="__main__":
-    MyApp().run()
+    MyApp().run()   #running the app to open the window

@@ -4,18 +4,18 @@ from re import sub
 
 
 class coronaLeb:
-    def __init__(self):
-        self.load_info()
+    def __init__(self):   #initial method
+        self.load_info()   #calling a method to refresh the information
 
-    def load_info(self):
-        self.corona_dict={}
+    def load_info(self):   #defining a function that will refresh the information
+        self.corona_dict={}   #defining an empty dictionary which will contain the data
 
-        self.page = get("https://corona.ministryinfo.gov.lb")
-        self.page = fromstring(self.page.content)
+        self.page = get("https://corona.ministryinfo.gov.lb")   #getting data from the html page
+        self.page = fromstring(self.page.content)   #parsing the html page
 
-        self.daily_cases = self.page.xpath("//h1[@class='s-counter s-counter']/text()")
-        self.daily_cases = sub('[^0-9]', '', self.daily_cases[0])
-        self.corona_dict['daily cases']=self.daily_cases
+        self.daily_cases = self.page.xpath("//h1[@class='s-counter s-counter']/text()")   #storing the contents of the specific class from the html page inside a list
+        self.daily_cases = sub('[^0-9]', '', self.daily_cases[0])   #filtering the contents of a specific item in a list to only numbers (removing spaces and other clutter)
+        self.corona_dict['daily cases'] = self.daily_cases   #adding the data inside the dictionary
 
         self.daily_cases_locals = self.page.xpath("//h1[@class='s-counter21 s-counter']/text()")
         self.daily_cases_locals = sub('[^0-9]', '', self.daily_cases_locals[0])
@@ -36,7 +36,7 @@ class coronaLeb:
         self.corona_dict['total cases locals']=self.total_cases_locals
 
         self.active_cases = self.page.xpath("//h1[@class='s-counter6 s-counter']/text()")
-        self.active_cases = sub("[^0-9]", "", self.active_cases[1])
+        self.active_cases = sub("[^0-9]", "", self.active_cases[1])   #if a class has multiple elements in the page they will all be stored in the list with different indexes
         self.corona_dict['active cases']=self.active_cases
 
         self.death_cases = self.page.xpath("//h1[@class='s-counter5 s-counter']/text()")
@@ -68,11 +68,11 @@ class coronaLeb:
 
         self.update_date = self.page.xpath("//strong/text()")
         self.update_date = self.update_date[0]
-        self.update_date = self.update_date.strip()
+        self.update_date = self.update_date.strip()   #removing the unwanted spaces from the date
         self.corona_dict['update date'] = self.update_date
 
-    def print_info(self):
-        self.printed_text = f"""
+    def print_info(self):   #defining a method that will print the data storred
+        self.printed_text = f"""    
 Update : {self.corona_dict['update date']}
 
 Daily cases : {self.corona_dict['daily cases']}  ({self.corona_dict['daily tests']} tests)
@@ -91,10 +91,10 @@ Deaths : {self.corona_dict['deaths']}
 Recovered : {self.corona_dict['recovered']}
 
 Lockdown cases : {self.corona_dict['lockdown cases']}
-"""
+"""   #defining a variable that will add the data to a text
 
-        print(self.printed_text)
+        print(self.printed_text)   #printing the text with the data added
 
 
-if __name__ == "__main__":
-    coronaLeb().print_info()
+if __name__ == "__main__":   
+    coronaLeb().print_info()   #only print the text if the class is executed directly and not imported
