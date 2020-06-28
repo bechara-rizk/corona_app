@@ -3,8 +3,9 @@ from kivy.uix.popup import Popup
 from kivy.config import Config
 from kivy.uix.button import Button
 from kivy.uix.widget import Widget
-
 from kivy.clock import Clock
+
+from threading import Thread
 
 from corona_leb import coronaLeb
 
@@ -17,10 +18,15 @@ class MyGrid(Widget):
 
     def __init__(self, **kwargs):   #initial method
         super(MyGrid, self).__init__(**kwargs)   #defining a parent class
-        #self.change_text()   #calling the method to change the text
-        Clock.schedule_once(self.change_text, 1)
 
-    def change_text(self, arggg):   #defining a method that will update the text in the app
+        #self.change_text()   #calling the method to change the text
+
+        #Clock.schedule_once(self.change_text, 1)   #after 1 second execute the specified function
+
+        self.text_thread = Thread(target=self.change_text)   #loading the info on a different thread to reduce the time
+        self.text_thread.start()   #starting the thread
+
+    def change_text(self):   #defining a method that will update the text in the app
         self.ids.update_date.text = "Last Update: " + str(coronaLeb().corona_dict["update date"])   #for each specific id defined in the kv file the text will be updated depending on the data storred in the disctionnary
         self.ids.daily_cases.text = str(coronaLeb().corona_dict["daily cases"])
         self.ids.tests.text = "Tests: " + str(coronaLeb().corona_dict["daily tests"])
