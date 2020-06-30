@@ -7,4 +7,4 @@ To open the application you will need:
      * libsdl2-mixer-2.0-0
      * libsdl2-ttf-2.0-0
 
-It was tested on unix based OSes (Linux and macOS) but not on Windows)
+It was tested on unix based OSes (Linux and macOS) but not on Windows
