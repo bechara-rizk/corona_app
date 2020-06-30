@@ -7,6 +7,6 @@ To open the application you will need:
      * libsdl2-mixer-2.0-0
      * libsdl2-ttf-2.0-0
 
-To open the application the command "python3.7 [file path]"
+To open the application the command "python3.7 [folder path]+/corona_app/corona_leb_design.py"
 
 It was tested on unix based OSes (Linux and macOS) but not on Windows
